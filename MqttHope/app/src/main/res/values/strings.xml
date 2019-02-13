@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Mqtt Hope</string>
+    <string name="self_destruct">something text</string>
 </resources>

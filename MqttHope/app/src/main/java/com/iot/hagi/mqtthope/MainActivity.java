@@ -3,6 +3,8 @@ package com.iot.hagi.mqtthope;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -30,10 +32,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         dataReceived = (TextView) findViewById(R.id.dataReceived);
-        chart = (LineChart) findViewById(R.id.chart);
-        mChart = new ChartHelper(chart);
+
+        Button button = findViewById(R.id.button_id);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+
+                chart = (LineChart) findViewById(R.id.chart);
+                mChart = new ChartHelper(chart);
+            }
+        });
+
+//        chart = (LineChart) findViewById(R.id.chart);
+//        mChart = new ChartHelper(chart);
 
         startMqtt();
     }
